@@ -1,0 +1,29 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.poo.prj_poo2_padrao_observer;
+
+/**
+ *
+ * @author Iftm
+ */
+public class Prj_POO2_Padrao_Observer {
+    public static void main(String[] args) {
+        WeatherData weatherData = new WeatherData();
+        
+        CurrentConditionsDisplay currentDisplay = new CurrentConditionsDisplay(weatherData);
+        StatisticsDisplay statisticsDisplay = new StatisticsDisplay(weatherData);
+        ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData);
+        
+        weatherData.setMeasurements(80, 65, 30.4f);
+        System.out.println("\n");
+        weatherData.setMeasurements(82, 70, 29.2f);
+        System.out.println("\n");
+        weatherData.setMeasurements(78, 90, 29.2f);
+        System.out.println("\n");
+        
+        weatherData.removeObserver(forecastDisplay);
+        weatherData.setMeasurements(62, 90, 28.1f);
+    }
+}
